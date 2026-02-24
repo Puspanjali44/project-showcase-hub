@@ -19,9 +19,9 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider opacity-60">Platform</h4>
           <div className="flex flex-col gap-2">
-            <Link to="/ngos" className="text-sm opacity-70 hover:opacity-100 transition-opacity">Browse NGOs</Link>
-            <Link to="/dashboard" className="text-sm opacity-70 hover:opacity-100 transition-opacity">Donor Dashboard</Link>
+            <Link to="/" className="text-sm opacity-70 hover:opacity-100 transition-opacity">Home</Link>
             <Link to="/about" className="text-sm opacity-70 hover:opacity-100 transition-opacity">About Us</Link>
+            <Link to="/auth" className="text-sm opacity-70 hover:opacity-100 transition-opacity">Get Started</Link>
           </div>
         </div>
         <div>
