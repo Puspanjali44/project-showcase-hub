@@ -1,19 +1,38 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, Menu, X } from "lucide-react";
+import { Heart, Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
-const navItems = [
-  { label: "Home", path: "/" },
-  { label: "Browse NGOs", path: "/ngos" },
-  { label: "Dashboard", path: "/dashboard" },
-  { label: "About", path: "/about" },
-];
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, role, signOut } = useAuth();
+
+  const publicNavItems = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+  ];
+
+  const donorNavItems = [
+    { label: "Browse NGOs", path: "/ngos" },
+    { label: "Dashboard", path: "/donor-dashboard" },
+  ];
+
+  const ngoNavItems = [
+    { label: "Dashboard", path: "/ngo-dashboard" },
+  ];
+
+  const navItems = user
+    ? [...publicNavItems, ...(role === "ngo" ? ngoNavItems : donorNavItems)]
+    : publicNavItems;
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   return (
     <motion.nav
@@ -47,14 +66,22 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/dashboard">
-            <Button variant="outline" size="sm">Log In</Button>
-          </Link>
-          <Link to="/ngos">
-            <Button size="sm" className="bg-hero-gradient text-primary-foreground hover:opacity-90">
-              Donate Now
+          {user ? (
+            <Button variant="outline" size="sm" onClick={handleSignOut}>
+              <LogOut className="w-4 h-4 mr-1" /> Sign Out
             </Button>
-          </Link>
+          ) : (
+            <>
+              <Link to="/auth">
+                <Button variant="outline" size="sm">Log In</Button>
+              </Link>
+              <Link to="/auth">
+                <Button size="sm" className="bg-hero-gradient text-primary-foreground hover:opacity-90">
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile toggle */}
@@ -88,9 +115,15 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/ngos" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full mt-2 bg-hero-gradient text-primary-foreground">Donate Now</Button>
-            </Link>
+            {user ? (
+              <Button variant="outline" className="w-full mt-2" onClick={() => { handleSignOut(); setMobileOpen(false); }}>
+                <LogOut className="w-4 h-4 mr-1" /> Sign Out
+              </Button>
+            ) : (
+              <Link to="/auth" onClick={() => setMobileOpen(false)}>
+                <Button className="w-full mt-2 bg-hero-gradient text-primary-foreground">Get Started</Button>
+              </Link>
+            )}
           </div>
         </motion.div>
       )}

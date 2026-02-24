@@ -76,9 +76,9 @@ const Index = () => {
               DanaDisha connects generous hearts with verified NGOs across Nepal. Track your impact in real-time and see exactly how your contribution changes lives.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/ngos">
+              <Link to="/auth">
                 <Button size="lg" className="bg-gold-gradient text-primary-foreground hover:opacity-90 shadow-warm text-base px-8">
-                  Start Donating <ArrowRight className="ml-2 w-4 h-4" />
+                  Get Started <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/about">
@@ -209,9 +209,9 @@ const Index = () => {
             <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
               Join thousands of donors who are changing lives across Nepal with transparent, trustworthy giving.
             </p>
-            <Link to="/ngos">
+            <Link to="/auth">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:opacity-90 text-base px-8 shadow-warm">
-                Browse Causes <ArrowRight className="ml-2 w-4 h-4" />
+                Join Now <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
           </motion.div>
