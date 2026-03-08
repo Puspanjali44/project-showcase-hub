@@ -19,7 +19,7 @@ const NGODashboard = () => {
         <p className="text-muted-foreground">Manage your organization, projects, and donations.</p>
       </motion.div>
 
-      <div>
+      <div className="space-y-8">
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
