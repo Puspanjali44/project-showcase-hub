@@ -16,14 +16,8 @@ const Navbar = () => {
     { label: "About", path: "/about" },
   ];
 
-  const donorNavItems = [
-    { label: "Browse NGOs", path: "/ngos" },
-    { label: "Dashboard", path: "/donor-dashboard" },
-  ];
-
-  const ngoNavItems = [
-    { label: "Dashboard", path: "/ngo-dashboard" },
-  ];
+  const donorNavItems: { label: string; path: string }[] = [];
+  const ngoNavItems: { label: string; path: string }[] = [];
 
   const navItems = user
     ? [...publicNavItems, ...(role === "ngo" ? ngoNavItems : donorNavItems)]
