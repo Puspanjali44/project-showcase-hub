@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import DashboardLayout from "@/components/DashboardLayout";
+import NGOPreviewLayout from "@/components/NGOPreviewLayout";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -63,6 +64,13 @@ const App = () => (
             <Route path="/ngo-create-project" element={<NGOLayout><NGOCreateProject /></NGOLayout>} />
             <Route path="/ngo-settings" element={<NGOLayout><NGOSettings /></NGOLayout>} />
             <Route path="/ngo-analytics" element={<NGOLayout><NGOAnalytics /></NGOLayout>} />
+
+            {/* Public NGO preview routes (no auth required) */}
+            <Route path="/preview/ngo-dashboard" element={<NGOPreviewLayout><NGODashboard /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-projects" element={<NGOPreviewLayout><NGOProjects /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-create-project" element={<NGOPreviewLayout><NGOCreateProject /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-settings" element={<NGOPreviewLayout><NGOSettings /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-analytics" element={<NGOPreviewLayout><NGOAnalytics /></NGOPreviewLayout>} />
 
             <Route path="*" element={<><Navbar /><NotFound /><Footer /></>} />
           </Routes>
