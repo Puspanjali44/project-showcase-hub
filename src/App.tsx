@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import DashboardLayout from "@/components/DashboardLayout";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -13,10 +14,24 @@ import BrowseNGOs from "./pages/BrowseNGOs";
 import NGODetail from "./pages/NGODetail";
 import DonorDashboard from "./pages/DonorDashboard";
 import NGODashboard from "./pages/NGODashboard";
+import MyDonations from "./pages/MyDonations";
+import Badges from "./pages/Badges";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+const DonorLayout = ({ children }: { children: React.ReactNode }) => (
+  <ProtectedRoute requiredRole="donor">
+    <DashboardLayout>{children}</DashboardLayout>
+  </ProtectedRoute>
+);
+
+const NGOLayout = ({ children }: { children: React.ReactNode }) => (
+  <ProtectedRoute requiredRole="ngo">
+    <DashboardLayout>{children}</DashboardLayout>
+  </ProtectedRoute>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -25,46 +40,24 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
-          <Navbar />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/about" element={<About />} />
-            <Route
-              path="/ngos"
-              element={
-                <ProtectedRoute requiredRole="donor">
-                  <BrowseNGOs />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/ngos/:id"
-              element={
-                <ProtectedRoute requiredRole="donor">
-                  <NGODetail />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/donor-dashboard"
-              element={
-                <ProtectedRoute requiredRole="donor">
-                  <DonorDashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/ngo-dashboard"
-              element={
-                <ProtectedRoute requiredRole="ngo">
-                  <NGODashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
+            {/* Public routes with Navbar + Footer */}
+            <Route path="/" element={<><Navbar /><Index /><Footer /></>} />
+            <Route path="/auth" element={<><Navbar /><Auth /><Footer /></>} />
+            <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
+
+            {/* Donor protected routes with sidebar layout */}
+            <Route path="/donor-dashboard" element={<DonorLayout><DonorDashboard /></DonorLayout>} />
+            <Route path="/ngos" element={<DonorLayout><BrowseNGOs /></DonorLayout>} />
+            <Route path="/ngos/:id" element={<DonorLayout><NGODetail /></DonorLayout>} />
+            <Route path="/my-donations" element={<DonorLayout><MyDonations /></DonorLayout>} />
+            <Route path="/badges" element={<DonorLayout><Badges /></DonorLayout>} />
+
+            {/* NGO protected routes with sidebar layout */}
+            <Route path="/ngo-dashboard" element={<NGOLayout><NGODashboard /></NGOLayout>} />
+
+            <Route path="*" element={<><Navbar /><NotFound /><Footer /></>} />
           </Routes>
-          <Footer />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

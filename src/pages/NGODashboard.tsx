@@ -12,7 +12,7 @@ const NGODashboard = () => {
   const ngo = mockNGOs[0];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="p-6 md:p-8 max-w-7xl mx-auto">
       {/* Header */}
       <section className="bg-gold-gradient py-12">
         <div className="container mx-auto px-4">
