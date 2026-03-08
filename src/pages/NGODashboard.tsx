@@ -133,7 +133,6 @@ const NGODashboard = () => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };
