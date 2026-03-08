@@ -7,7 +7,9 @@ import {
   Heart,
   Award,
   LogOut,
-  ChevronLeft,
+  FolderPlus,
+  Settings,
+  BarChart3,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import {
@@ -36,6 +38,10 @@ const donorNav = [
 
 const ngoNav = [
   { title: "Dashboard", url: "/ngo-dashboard", icon: LayoutDashboard },
+  { title: "My Projects", url: "/ngo-projects", icon: Building2 },
+  { title: "Create Project", url: "/ngo-create-project", icon: FolderPlus },
+  { title: "Settings", url: "/ngo-settings", icon: Settings },
+  { title: "Analytics", url: "/ngo-analytics", icon: BarChart3 },
 ];
 
 function AppSidebar() {

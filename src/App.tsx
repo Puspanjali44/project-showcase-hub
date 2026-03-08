@@ -14,6 +14,10 @@ import BrowseNGOs from "./pages/BrowseNGOs";
 import NGODetail from "./pages/NGODetail";
 import DonorDashboard from "./pages/DonorDashboard";
 import NGODashboard from "./pages/NGODashboard";
+import NGOProjects from "./pages/NGOProjects";
+import NGOCreateProject from "./pages/NGOCreateProject";
+import NGOSettings from "./pages/NGOSettings";
+import NGOAnalytics from "./pages/NGOAnalytics";
 import MyDonations from "./pages/MyDonations";
 import Badges from "./pages/Badges";
 import About from "./pages/About";
@@ -55,6 +59,10 @@ const App = () => (
 
             {/* NGO protected routes with sidebar layout */}
             <Route path="/ngo-dashboard" element={<NGOLayout><NGODashboard /></NGOLayout>} />
+            <Route path="/ngo-projects" element={<NGOLayout><NGOProjects /></NGOLayout>} />
+            <Route path="/ngo-create-project" element={<NGOLayout><NGOCreateProject /></NGOLayout>} />
+            <Route path="/ngo-settings" element={<NGOLayout><NGOSettings /></NGOLayout>} />
+            <Route path="/ngo-analytics" element={<NGOLayout><NGOAnalytics /></NGOLayout>} />
 
             <Route path="*" element={<><Navbar /><NotFound /><Footer /></>} />
           </Routes>
