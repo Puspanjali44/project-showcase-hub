@@ -14,18 +14,10 @@ const NGODashboard = () => {
   return (
     <div className="p-6 md:p-8 max-w-7xl mx-auto">
       {/* Header */}
-      <section className="bg-gold-gradient py-12">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-3xl font-serif font-bold text-primary-foreground mb-2">
-              NGO Dashboard 🏢
-            </h1>
-            <p className="text-primary-foreground/80">
-              Manage your organization, projects, and donations.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+        <h1 className="text-3xl font-serif font-bold text-foreground mb-1">NGO Dashboard 🏢</h1>
+        <p className="text-muted-foreground">Manage your organization, projects, and donations.</p>
+      </motion.div>
 
       <section className="py-10">
         <div className="container mx-auto px-4">
