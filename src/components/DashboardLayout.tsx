@@ -36,6 +36,10 @@ const donorNav = [
 
 const ngoNav = [
   { title: "Dashboard", url: "/ngo-dashboard", icon: LayoutDashboard },
+  { title: "My Projects", url: "/ngo-projects", icon: Building2 },
+  { title: "Create Project", url: "/ngo-create-project", icon: Heart },
+  { title: "Settings", url: "/ngo-settings", icon: LayoutDashboard },
+  { title: "Analytics", url: "/ngo-analytics", icon: Award },
 ];
 
 function AppSidebar() {

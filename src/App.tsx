@@ -59,6 +59,10 @@ const App = () => (
 
             {/* NGO protected routes with sidebar layout */}
             <Route path="/ngo-dashboard" element={<NGOLayout><NGODashboard /></NGOLayout>} />
+            <Route path="/ngo-projects" element={<NGOLayout><NGOProjects /></NGOLayout>} />
+            <Route path="/ngo-create-project" element={<NGOLayout><NGOCreateProject /></NGOLayout>} />
+            <Route path="/ngo-settings" element={<NGOLayout><NGOSettings /></NGOLayout>} />
+            <Route path="/ngo-analytics" element={<NGOLayout><NGOAnalytics /></NGOLayout>} />
 
             <Route path="*" element={<><Navbar /><NotFound /><Footer /></>} />
           </Routes>
