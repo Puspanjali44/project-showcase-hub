@@ -7,7 +7,9 @@ import {
   Heart,
   Award,
   LogOut,
-  ChevronLeft,
+  FolderPlus,
+  Settings,
+  BarChart3,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import {
