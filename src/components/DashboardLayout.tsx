@@ -10,6 +10,7 @@ import {
   FolderPlus,
   Settings,
   BarChart3,
+  Footprints,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import {
