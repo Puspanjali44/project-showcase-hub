@@ -8,6 +8,7 @@ import {
   Settings,
   BarChart3,
   Heart,
+  Footprints,
 } from "lucide-react";
 
 const previewNav = [
