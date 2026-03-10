@@ -70,6 +70,7 @@ const App = () => (
             {/* Public NGO preview routes (no auth required) */}
             <Route path="/preview/ngo-dashboard" element={<NGOPreviewLayout><NGODashboard /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-projects" element={<NGOPreviewLayout><NGOProjects /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-project-updates" element={<NGOPreviewLayout><NGOProjectUpdates /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-create-project" element={<NGOPreviewLayout><NGOCreateProject /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-settings" element={<NGOPreviewLayout><NGOSettings /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-analytics" element={<NGOPreviewLayout><NGOAnalytics /></NGOPreviewLayout>} />
