@@ -17,6 +17,7 @@ import DonorDashboard from "./pages/DonorDashboard";
 import NGODashboard from "./pages/NGODashboard";
 import NGOProjects from "./pages/NGOProjects";
 import NGOCreateProject from "./pages/NGOCreateProject";
+import NGOProjectUpdates from "./pages/NGOProjectUpdates";
 import NGOSettings from "./pages/NGOSettings";
 import NGOAnalytics from "./pages/NGOAnalytics";
 import MyDonations from "./pages/MyDonations";
