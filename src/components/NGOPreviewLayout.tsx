@@ -8,11 +8,13 @@ import {
   Settings,
   BarChart3,
   Heart,
+  Footprints,
 } from "lucide-react";
 
 const previewNav = [
   { title: "Dashboard", url: "/preview/ngo-dashboard", icon: LayoutDashboard },
   { title: "My Projects", url: "/preview/ngo-projects", icon: Building2 },
+  { title: "Project Updates", url: "/preview/ngo-project-updates", icon: Footprints },
   { title: "Create Project", url: "/preview/ngo-create-project", icon: FolderPlus },
   { title: "Settings", url: "/preview/ngo-settings", icon: Settings },
   { title: "Analytics", url: "/preview/ngo-analytics", icon: BarChart3 },

@@ -17,6 +17,7 @@ import DonorDashboard from "./pages/DonorDashboard";
 import NGODashboard from "./pages/NGODashboard";
 import NGOProjects from "./pages/NGOProjects";
 import NGOCreateProject from "./pages/NGOCreateProject";
+import NGOProjectUpdates from "./pages/NGOProjectUpdates";
 import NGOSettings from "./pages/NGOSettings";
 import NGOAnalytics from "./pages/NGOAnalytics";
 import MyDonations from "./pages/MyDonations";
@@ -61,6 +62,7 @@ const App = () => (
             {/* NGO protected routes with sidebar layout */}
             <Route path="/ngo-dashboard" element={<NGOLayout><NGODashboard /></NGOLayout>} />
             <Route path="/ngo-projects" element={<NGOLayout><NGOProjects /></NGOLayout>} />
+            <Route path="/ngo-project-updates" element={<NGOLayout><NGOProjectUpdates /></NGOLayout>} />
             <Route path="/ngo-create-project" element={<NGOLayout><NGOCreateProject /></NGOLayout>} />
             <Route path="/ngo-settings" element={<NGOLayout><NGOSettings /></NGOLayout>} />
             <Route path="/ngo-analytics" element={<NGOLayout><NGOAnalytics /></NGOLayout>} />
@@ -68,6 +70,7 @@ const App = () => (
             {/* Public NGO preview routes (no auth required) */}
             <Route path="/preview/ngo-dashboard" element={<NGOPreviewLayout><NGODashboard /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-projects" element={<NGOPreviewLayout><NGOProjects /></NGOPreviewLayout>} />
+            <Route path="/preview/ngo-project-updates" element={<NGOPreviewLayout><NGOProjectUpdates /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-create-project" element={<NGOPreviewLayout><NGOCreateProject /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-settings" element={<NGOPreviewLayout><NGOSettings /></NGOPreviewLayout>} />
             <Route path="/preview/ngo-analytics" element={<NGOPreviewLayout><NGOAnalytics /></NGOPreviewLayout>} />
